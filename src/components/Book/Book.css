@@ -1,0 +1,52 @@
+.book{
+    border: 2px dashed #e50000;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.inputs{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slots{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.patient, .doctor{
+    padding:20px;
+}
+
+.doctorSelect, .patientName{
+    padding: 5px;
+    width: 250px;
+    border: none;
+    border-bottom: 2px solid #e50000;
+    font-size: 20px;
+    color: darkslategrey;
+    outline: none;
+}
+
+.bookSubmit{
+    background-color: #e50000;
+    color:white;
+    border:none;
+    box-shadow: 2px 2px 15px #d1d1d1;
+    margin: 20px 30px;
+    padding:20px 30px;
+    display: inline-block;
+    border-radius: 10px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+  }
+
+.bookSubmit:hover{
+    background-color: #a50000;
+}

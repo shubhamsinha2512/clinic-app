@@ -1,0 +1,16 @@
+.slot{
+    padding: 15px 20px;
+    background-color: rgb(12, 153, 209);
+    border-radius: 10px;
+    margin:10px;
+    color:white;
+    font-size: 16px;
+    cursor:pointer;
+    border:none;
+    outline: none;
+}
+
+
+.slot:focus, .slot:hover{
+    background-color: #e50000;
+}

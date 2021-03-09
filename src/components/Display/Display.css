@@ -1,0 +1,33 @@
+.display{
+    max-width: 50%;
+    border:2px dashed #e50000;
+    margin: auto;
+    padding: 10px 20px;
+    color: darkslategray;
+    text-align: center;
+    overflow:scroll;
+    max-height: 350px;
+}
+
+.display::-webkit-scrollbar{
+    display: none;
+}
+
+.bookId{
+    color:#e50000;
+    font-weight: bold;
+}
+
+.displayPN, .displayDN, .displayT{
+    font-size: 20px;
+}
+
+table, td, th{
+    border: 1px solid #e50000;
+    padding: 5px 10px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
