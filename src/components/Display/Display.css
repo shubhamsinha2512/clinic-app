@@ -1,17 +1,18 @@
 .display{
     max-width: 50%;
+    max-height: 300px;
     border:2px dashed #e50000;
     margin: auto;
     padding: 10px 20px;
     color: darkslategray;
     text-align: center;
     overflow:scroll;
-    max-height: 350px;
 }
 
 .display::-webkit-scrollbar{
     display: none;
 }
+
 
 .bookId{
     color:#e50000;

@@ -1,7 +1,6 @@
 import './App.css';
 import Airtable from 'airtable'
 import {useState, useEffect} from 'react'
-import {IconButton, Button, Card} from '@material-ui/core'
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
 
 import Book from './components/Book/Book'
@@ -13,31 +12,24 @@ function App() {
 
   const [Doctors, setDoctors] = useState([]);
   const [Appointments, setAppointments]=useState([]);
-  const [DocSelected, setDocSelected]=useState();
-  const [count, setCount] = useState(0);
 
   useEffect(()=>{
     getDoctors().then((result)=>{
-      // console.log(result);
       setDoctors(()=>minifyDoctors(result));
     })
 
     getAppointments().then((result)=>{
-      setAppointments(()=>minifyAppointments(result));
-      // console.log(Appointments);
+    setAppointments(()=>minifyAppointments(result));
     })
-    // console.log(result);
-  }, [])
+  }, [Appointments])
 
   async function getDoctors(){
     var doctors = await base('Doctors').select().firstPage();
-    // console.log(doctors);
     return doctors;
   }
 
   async function getAppointments(){
     var appointments = await base('Appointments').select().firstPage();
-    // console.log(appointments);
     return appointments;
   }
 
@@ -52,8 +44,6 @@ function App() {
         'Timings':appointment.fields.Timings
       })
     })
-    setCount((count)=>count+1);
-    // console.log(appMin);
     return appMin;
   }
 
@@ -66,16 +56,12 @@ function App() {
         'Speciality':doctor.fields.Speciality,
       })
     });
-    // console.log(docMin);
+
     return docMin;
   }
 
-  function handleClick(e){
-    alert(e.target.id);
-  }
-
-
   function createAppointment(PatientName, DoctorId, Timings){
+    
     return base('Appointments').create([
       {
       "fields":{
@@ -84,8 +70,10 @@ function App() {
         "Timings":Timings
         }
       }
-    ])
+    ]);
   }
+
+  function updateAppointments(record){Appointments.push(record);}
 
   return (
     <div className="App">
@@ -97,20 +85,22 @@ function App() {
       <Router>
         <Link to='/book' ><div class='bookBtn' >Book Appointment</div></Link>
         <Link to='/details' ><div class='detBtn' >Check Appointment Details</div></Link>
+        
         <hr/>
+        
         <Switch>
-        <Route path='/book'>
-          <Book 
-            doctorsList={Doctors} 
-            appointmentsList={Appointments} 
-            setDocSelected={setDocSelected} 
-            createAppointment = {createAppointment}
-          />
-        </Route>
+          <Route path='/book'>
+            <Book 
+              doctorsList={Doctors} 
+              appointmentsList={Appointments} 
+              createAppointment = {createAppointment}
+              updateAppointments={updateAppointments}
+            />
+          </Route>
 
-        <Route path='/details'>
-          <Display appointments={Appointments} />
-        </Route>
+          <Route path='/details'>
+            <Display appointments={Appointments} />
+          </Route>
       </Switch>
 
       </Router>

@@ -2,6 +2,8 @@
     border: 2px dashed #e50000;
     max-width: 1200px;
     margin: 20px auto;
+    color:darkslategrey;
+
 }
 
 .inputs{
@@ -31,6 +33,7 @@
     font-size: 20px;
     color: darkslategrey;
     outline: none;
+    background-color: #f0f0f0;
 }
 
 .bookSubmit{
@@ -48,5 +51,5 @@
   }
 
 .bookSubmit:hover{
-    background-color: #a50000;
+    background-color: #bd0000;
 }
